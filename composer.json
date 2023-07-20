@@ -1,0 +1,11 @@
+{
+    "name": "amirhossein/product",
+    "description": "a product site mvc",
+    "authors": [
+        {
+            "name": "Amirhossein",
+            "email": "Amirmemool12@gmail.com"
+        }
+    ],
+    "require": {}
+}
