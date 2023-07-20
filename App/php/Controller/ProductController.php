@@ -1,8 +1,10 @@
 <?php
 
-namespace app\controller;
+namespace app\Controller;
 
-class productController
+class ProductController
 {
+    public function index(){
 
+    }
 }
