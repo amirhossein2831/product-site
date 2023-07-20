@@ -1,9 +1,14 @@
 {
     "name": "amirhossein/product",
     "description": "a product site mvc",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./App/php"
+        }
+    },
     "authors": [
         {
-            "name": "Amirhossein",
+            "name": "Amirhos sein",
             "email": "Amirmemool12@gmail.com"
         }
     ],
