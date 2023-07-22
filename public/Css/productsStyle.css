@@ -1,0 +1,121 @@
+body {
+    margin-top: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 65vh;
+}
+article {
+    width: 90%;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 20px;
+    resize: both;
+    overflow: auto;
+}
+.form-container {
+    width: 100%
+}
+.create-form {
+    margin-top: -10px;
+}
+.create-button{
+    border: 1px solid;
+    font-size: 15px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    border-radius: 8px;
+    background: chartreuse;
+    cursor: pointer;
+    padding: 10px;
+}
+.create-button:hover{
+    border: 2px solid;
+    font-style: italic;
+
+}
+.search-form{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.search-input{
+    flex: 1;
+    border: 1px solid gray;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 8px;
+}
+.search-input:hover{
+    border-color: black;
+    font-style: italic;
+}
+.search-button{
+    border: 1px solid gray;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 3px;
+}
+.search-button:hover{
+    border: 1px solid black;
+    font-style: italic;
+}
+.product_table {
+    width:100%;
+    border-collapse: collapse;
+}
+table.product_table tr{
+    border-bottom: 1px solid gray;
+    padding: 8px;
+    text-align: left;
+}
+table.product_table tr:last-child{
+    border-bottom: none;
+}
+
+table.product_table th{
+    font-size: 20px ;
+    padding: 5px;
+    font-weight: bold;
+}
+table.product_table td{
+    padding: 5px;
+}
+table tr .Id{
+    font-weight: bold;
+    font-size: 20px;
+}
+h1 {
+    margin-top: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+}
+.edit-product ,.delete-product{
+    padding: 10px ;
+    font-size: 15px;
+    border:1px solid;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.edit-product{
+    border-color: forestgreen;
+}
+.edit-product:hover{
+    border:2px solid forestgreen;
+    color: forestgreen;
+    font-style: italic;
+}
+
+.delete-product{
+    border-color:firebrick;
+}
+.delete-product:hover{
+    border:2px solid firebrick;
+    color: firebrick;
+    font-style: italic;
+}
+
