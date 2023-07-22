@@ -3,8 +3,14 @@
 namespace app;
 
 class Router {
-    public array $getRout = [];
-    public array $postRout = [];
+    public array $getRout;
+    public array $postRout;
+
+
+    public function __construct(){
+        $this->getRout = [];
+        $this->postRout = [];
+    }
 
     public function get($url, $fn): void {
         $this->getRout[$url] = $fn;
@@ -27,5 +33,4 @@ class Router {
         } else
             echo "Page Not Found";
     }
-
 }
