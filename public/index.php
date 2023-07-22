@@ -4,6 +4,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use app\Controller\ProductController;
 use app\Router;
 
+
+
 $router = new Router();
 initialRouter($router);
 $router->resolve();
