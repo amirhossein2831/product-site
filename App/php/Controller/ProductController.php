@@ -2,10 +2,20 @@
 
 namespace app\Controller;
 
+use app\DBConnection\DBConnection;
+
 class ProductController
 {
+    public DBConnection $db;
+
+    public function __construct(){
+        $this->db = new DBConnection();
+    }
     public function index(): void {
-        $this->renderView('product/index');
+        $products = $this->db->getProducts();
+        $search = $_GET['search'] ?? '';
+        $this->renderView('product/index',['product' => $products,
+                                                 'search'=>$search]);
     }
     public function create(): void {
         $this->renderView('product/create');
@@ -16,7 +26,7 @@ class ProductController
     public function delete(): void {
         $this->renderView('product/delete');
     }
-    public function renderView($view): void {      //viewName like index create ...
+    public function renderView($view,$products = []): void {      //viewName like index create ...
         ob_start();
         include_once __DIR__ . "/../views/$view.php";
         $content = ob_get_clean();
