@@ -3,6 +3,7 @@
 namespace app\Controller;
 
 use app\DBConnection\DBConnection;
+use app\Models\Product;
 
 class ProductController
 {
@@ -18,7 +19,21 @@ class ProductController
                                                  'search'=>$search]);
     }
     public function create(): void {
-        $this->renderView('product/create');
+        $error = [];
+        $productDate = [
+            'title'=>'',
+            'description'=>'',
+            'image'=>'',
+            'price'=>''
+        ];
+        $this->renderView('product/create',['product' => $productDate,
+            'error'=>$error]);
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            $product = new Product($_POST,$_FILES['image']);
+            $product->save($this->db);
+            header('Location: /product');
+            exit;
+        }
     }
     public function update(): void {
         $this->renderView('product/update');
