@@ -2,35 +2,42 @@
 
 namespace app;
 
-class Router {
+class Router
+{
     public array $getRout;
     public array $postRout;
 
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->getRout = [];
         $this->postRout = [];
     }
 
-    public function get($url, $fn): void {
+    public function get($url, $fn): void
+    {
         $this->getRout[$url] = $fn;
     }
 
-    public function post($url, $fn): void {
+    public function post($url, $fn): void
+    {
         $this->postRout[$url] = $fn;
     }
 
-    public function resolve(): void {
+    public function resolve(): void
+    {
         $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
 
         if ($method === 'GET') {
             $fn = $this->getRout[$currentUrl] ?? null;
-        } else
+        } else {
             $fn = $this->postRout[$currentUrl] ?? null;
+        }
         if ($fn) {
             call_user_func($fn);
-        } else
+        } else {
             echo "Page Not Found";
+        }
     }
 }
