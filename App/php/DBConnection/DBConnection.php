@@ -21,6 +21,13 @@ class DBConnection {
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getProductById($id): false|array
+    {
+        $statement = $this->connection->prepare("SELECT * FROM product WHERE id='$id'");
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function setProduct(Product $product): bool
     {
         $date = date('Y-m-d H:i:s');
