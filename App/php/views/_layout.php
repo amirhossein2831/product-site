@@ -12,7 +12,7 @@ $path = $pathInfo ? (strlen($pathInfo) > 9 ? './../../' : './') : './';
     <title>Product</title>
     <link rel="stylesheet" href="<?php echo $path?>Css/main.css">
     <link rel="stylesheet" href="<?php echo $path?>Css/normalize.css">
-    <link rel="stylesheet" href="<?php echo $path?>Css/productsStyle.css">
+    <link rel="stylesheet" href="<?php echo $path?>Css/containers.css">
     <link rel="stylesheet" href="<?php echo $path?>Css/button.css">
     <link rel="stylesheet" href="<?php echo $path?>Css/table.css">
     <link rel="stylesheet" href="<?php echo $path?>Css/form.css">
