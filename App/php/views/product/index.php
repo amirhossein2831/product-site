@@ -6,10 +6,8 @@ $product = $products['product'] ?? '';
     <h1>Products List</h1>
     <div class="form-container">
         <div>
-            <form class="create-form" action="" method="post">
-                <input type="hidden" name="create_product" value="">
-                <button class="create-button">Create Product</button>
-            </form>
+            <a href="/product/create" class="create-link">Create Product</a>
+            <br>
             <br>
             <form class="search-form" action="" method="get">
                 <input class="search-input" type="text" name="search" placeholder="Samsung S23 Ultra">
@@ -31,7 +29,6 @@ $product = $products['product'] ?? '';
             </tr>
             <?php $index = 1;?>
             <?php foreach ($product as $key => $value):?>
-            <?php echo $value['picture']?>
 
             <tr>
                 <td class="Id"><?php echo $index++;?></td>
