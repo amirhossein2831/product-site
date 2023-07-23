@@ -6,7 +6,8 @@ $product = $products['product'] ?? '';
     <h1>Products List</h1>
     <div class="form-container">
         <div>
-            <a href="/product/create" class="create-link">Create Product</a>
+            <a href="/product/create" class="create-product-button">Create Product</a>
+
             <br>
             <br>
             <form class="search-form" action="" method="get">
@@ -18,7 +19,7 @@ $product = $products['product'] ?? '';
     <br>
     <br>
     <div class="container">
-        <table class="product_table">
+        <table>
             <tr>
                 <th style="width: 5%;">#</th>
                 <th style="width: 10%;">Image</th>
@@ -47,11 +48,11 @@ $product = $products['product'] ?? '';
                 <td><?php echo $value['price'] ?? '';?></td>
                 <td><?php echo $value['create_date'] ?? '';?></td>
                 <td>
-                    <a class="edit-link" href="/product/update?id=<?php echo $value['id']?>">Edit</a>
+                    <a class="edit-button" href="/product/update?id=<?php echo $value['id']?>">Edit</a>
 
                     <form style="display: inline-block" action="/product/delete" method="post">
                            <input type="hidden" name="delete" value="<?php echo $value['id']; ?>">
-                           <button  class="delete-product" >Delete </button>
+                           <button  class="delete-button" >Delete </button>
                    </form>
                 </td>
             </tr>

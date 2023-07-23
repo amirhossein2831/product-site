@@ -1,0 +1,29 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table tr {
+    border-bottom: 1px solid gray;
+    padding: 8px;
+    text-align: left;
+}
+
+table tr:last-child {
+    border-bottom: none;
+}
+
+table th {
+    font-size: 20px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+table td {
+    padding: 5px;
+}
+
+table tr .Id {
+    font-weight: bold;
+    font-size: 20px;
+}

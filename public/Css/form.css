@@ -1,0 +1,43 @@
+
+.create-form {
+    margin-top: -10px;
+}
+
+.search-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-input {
+    flex: 1;
+    border: 1px solid gray;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 8px;
+}
+
+.search-input:hover {
+    border-color: black;
+    font-style: italic;
+}
+
+.create input[type=text] {
+    width: 98%;
+    border: 1px solid gray;
+    padding: 7px;
+    font-size: 15px;
+    border-radius: 8px;
+}
+
+.create input[name='description'] {
+    height: 50px;
+}
+.empty {
+    border: 1px solid red !important; /* Set your desired border color */
+}
+
+.empty::placeholder {
+    color: red;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
