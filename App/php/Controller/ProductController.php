@@ -57,6 +57,25 @@ class ProductController
             exit;
         }
     }
+    public function delete(): void {
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            $id = $_POST['delete'];
+            if (isset($id)) {
+                $product = $this->db->getProductById($id);
+                $imagePath = './'. $product[0]['picture'];
+                unlink($imagePath);
+                $this->db->deleteProduct($id);
+                header("Location: /product");
+            }
+        }
+    }
+
+    public function phone(): void
+    {
+        $id = $_POST['id'] ?? '';
+        $product = $this->db->getProductById($id);
+        $this->renderView('product/phone',['product'=>$product]);
+    }
     public function renderView($view,$products = []): void {      //viewName like index create ...
         ob_start();
         include_once __DIR__ . "/../views/$view.php";
