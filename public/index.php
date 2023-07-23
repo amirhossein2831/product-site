@@ -19,4 +19,7 @@ function initialRouter(Router $router): void {
     $router->post('/product/create', [$productController, 'create']);
     $router->post('/product/update', [$productController, 'update']);
     $router->post('/product/delete', [$productController, 'delete']);
+    $router->get('/product/phone', [$productController, 'phone']);
+    $router->post('/product/phone', [$productController, 'phone']);
+
 }
