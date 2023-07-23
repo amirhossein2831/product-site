@@ -39,7 +39,12 @@ class ProductController
         $this->renderView('product/update');
     }
     public function delete(): void {
-        $this->renderView('product/delete');
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            if (isset($_POST['delete'])) {
+                $this->db->deleteProduct($_POST['delete']);
+                header("Location: /product");
+            }
+        }
     }
     public function renderView($view,$products = []): void {      //viewName like index create ...
         ob_start();
