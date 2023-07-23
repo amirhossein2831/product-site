@@ -1,1 +1,0 @@
-<h1>Delete Views</h1>
