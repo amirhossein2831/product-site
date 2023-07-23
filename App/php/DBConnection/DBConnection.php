@@ -28,4 +28,9 @@ class DBConnection {
                                                          VALUES('$product->title','$product->description','$product->price','$product->imagePath','$date')");
         return $statement->execute();
     }
+    public function deleteProduct($id): void
+    {
+        $statement = $this->connection->prepare("DELETE FROM product WHERE id = '$id' ");
+        $statement->execute();
+    }
 }
