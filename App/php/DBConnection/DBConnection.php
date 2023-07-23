@@ -33,4 +33,14 @@ class DBConnection {
         $statement = $this->connection->prepare("DELETE FROM product WHERE id = '$id' ");
         $statement->execute();
     }
+
+    public function updateProduct(Product $product): void
+    {
+        $date = date('Y-m-d H:i:s');
+        $statement = $this->connection->prepare("UPDATE product SET title = '$product->title', description = '$product->description',
+                                                        price = '$product->price',picture = '$product->imagePath',create_date ='$date'
+                                                        WHERE id='$product->id';");
+        $statement->execute();
+
+    }
 }
