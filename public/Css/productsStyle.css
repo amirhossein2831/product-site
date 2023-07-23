@@ -20,7 +20,7 @@ article {
 .create-form {
     margin-top: -10px;
 }
-.create-button{
+.create-link{
     border: 1px solid;
     font-size: 15px;
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -28,8 +28,9 @@ article {
     background: chartreuse;
     cursor: pointer;
     padding: 10px;
+    text-decoration: none;
 }
-.create-button:hover{
+.create-link:hover{
     border: 2px solid;
     font-style: italic;
 
@@ -119,3 +120,50 @@ h1 {
     font-style: italic;
 }
 
+
+.first-container{
+    height: 70px;
+}
+.first-container{
+    height: 80px;
+}
+.description-container{
+    height: 100px;
+}
+.second-container{
+    height: 25px;
+}
+
+.create input[type=text]{
+    width: 98%;
+    border: 1px solid gray;
+    padding: 7px;
+    font-size: 15px;
+    border-radius: 8px;
+}
+
+.create input[name='description']{
+    height: 50px;
+}
+.create label{
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+.submit-button {
+    border: 1px solid black;
+    padding: 5PX;
+    font-size: 18px;
+    background: dodgerblue;
+    border-radius: 9px;
+}
+.submit-button:hover{
+    border: 2px solid black;
+    font-style: italic;
+}
+.empty {
+    border: 1px solid red !important; /* Set your desired border color */
+}
+
+.empty::placeholder{
+    color: red;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
