@@ -13,8 +13,8 @@ class ProductController
         $this->db = new DBConnection();
     }
     public function index(): void {
-        $products = $this->db->getProducts();
         $search = $_GET['search'] ?? '';
+        $products = $this->db->getProducts($search);
         $this->renderView('product/index',['product' => $products,
                                                  'search'=>$search]);
     }
@@ -36,14 +36,25 @@ class ProductController
         }
     }
     public function update(): void {
-        $this->renderView('product/update');
-    }
-    public function delete(): void {
+        $id = $_GET['id'] ?? null;
+        $productDate = [
+            'title'=>'',
+            'description'=>'',
+            'image'=>'',
+            'price'=>''
+        ];
+        if (!is_null($id)) {
+          $productDate = $this->db->getProductById($id);
+        }
+        $this->renderView('product/update',['product' => $productDate]);
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            if (isset($_POST['delete'])) {
-                $this->db->deleteProduct($_POST['delete']);
-                header("Location: /product");
-            }
+            $_POST['id'] = $id;
+            $_POST['picture'] = $productDate[0]['picture'];
+
+            $product = new Product($_POST,$_FILES['image']);
+            $product->update($this->db);
+            header('Location: /product');
+            exit;
         }
     }
     public function renderView($view,$products = []): void {      //viewName like index create ...
