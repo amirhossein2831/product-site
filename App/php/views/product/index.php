@@ -10,7 +10,7 @@ $product = $products['product'] ?? '';
             <br>
             <br>
             <form class="search-form" action="" method="get">
-                <input class="search-input" type="text" name="search" placeholder="Samsung S23 Ultra">
+                <input id="search-input" class="search-input" type="text" name="search" placeholder="Samsung S23 Ultra" value="">
                 <button class="search-button">Search</button>
             </form>
         </div>
@@ -32,24 +32,33 @@ $product = $products['product'] ?? '';
 
             <tr>
                 <td class="Id"><?php echo $index++;?></td>
-                <td><img src="<?php  echo $value['picture'] ?? ''?>" alt="not-set" width="40px" height="40px"></td>
-                <td><?php echo $value['title'] ?? '';?></td>
+
+                <?php if($value['picture']):?>
+                    <td>
+                        <form class="form_image" id="myForm" action="/product/phone" method="post">
+                            <input type="hidden" name="id" value="<?php echo $value['id'] ?>"/>
+                            <img class="image_but" src="<?php  echo $value['picture']?>" alt="not-set" width="40px" height="40px">
+                        </form>
+                    </td>
+                <?php else: ?> <td> </td>
+                <?php endif; ?>
+
+                <td><p class="p_but"><?php echo $value['title'] ?? '';?></p></td>
                 <td><?php echo $value['price'] ?? '';?></td>
                 <td><?php echo $value['create_date'] ?? '';?></td>
                 <td>
-                    <form action="" method="post">
-                        <input type="hidden" name="edit">
-                        <button class="edit-product">Edit</button>
-                        <input type="hidden" name="Delete">
-                        <button class="delete-product" >Delete </button>
-                    </form>
+                    <a class="edit-link" href="/product/update?id=<?php echo $value['id']?>">Edit</a>
+
+                    <form style="display: inline-block" action="/product/delete" method="post">
+                           <input type="hidden" name="delete" value="<?php echo $value['id']; ?>">
+                           <button  class="delete-product" >Delete </button>
+                   </form>
                 </td>
             </tr>
 
             <?php endforeach;?>
         </table>
-
     </div>
-
-
 </article>
+<script src="./js/openLink.js"></script>
+
