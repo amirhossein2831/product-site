@@ -3,8 +3,9 @@
 namespace app\Models;
 
 use app\Component\DataBase\DBConnection;
+use app\Component\Interface\Model;
 
-class Product
+class Product implements Model
 {
     public ?int $id;
 
@@ -36,7 +37,7 @@ class Product
         $Db->updateProduct($this);
     }
 
-    public function saveFile(): void
+    private function saveFile(): void
     {
         if (!is_null($this->imageFile) && $this->imageFile['tmp_name'] !== '') {
             if (!is_null($this->imagePath) && ($this->imagePath) > 0) {
