@@ -61,3 +61,6 @@ button:hover, a:hover {
 .submit-button:hover {
     border: 2px solid black;
 }
+.image_but{
+    cursor: pointer;
+}
