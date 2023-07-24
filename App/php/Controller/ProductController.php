@@ -8,7 +8,7 @@ use app\Models\Product;
 
 class ProductController implements Controller
 {
-    public DBConnection $db;
+    private DBConnection $db;
 
     public function __construct()
     {
@@ -91,7 +91,7 @@ class ProductController implements Controller
         $this->renderView('product/phone', ['product' => $product]);
     }
 
-    public function renderView($view, $products = []): void
+    private function renderView($view, $products = []): void
     {      //viewName like index create ...
         ob_start();
         include_once __DIR__ . "/../views/$view.php";
