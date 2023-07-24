@@ -4,8 +4,8 @@ namespace app;
 
 class Router
 {
-    public array $getRout;
-    public array $postRout;
+    private array $getRout;
+    private array $postRout;
 
 
     public function __construct()
