@@ -3,9 +3,10 @@
 namespace app\Controller;
 
 use app\Component\DataBase\DBConnection;
+use app\Component\Interface\Controller;
 use app\Models\Product;
 
-class ProductController
+class ProductController implements Controller
 {
     public DBConnection $db;
 
