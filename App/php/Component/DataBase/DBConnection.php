@@ -38,23 +38,31 @@ class DBConnection implements DataBase
 
     public function setProduct(Product $product): bool
     {
+        $title = $product->getTitle();
+        $description = $product->getDescription();
+        $price = $product->getPrice();
+        $imagePath = $product->getImagePath();
         $date = date('Y-m-d H:i:s');
+
         $statement = $this->connection->prepare(
             "INSERT INTO product (title,description,price,picture,create_date)
-                 VALUES('$product->title','$product->description','$product->price','$product->imagePath','$date')"
+                 VALUES('$title','$description','$price','$imagePath','$date')"
         );
         return $statement->execute();
     }
 
     public function updateProduct(Product $product): void
     {
+        $id = $product->getId();
+        $title = $product->getTitle();
+        $description = $product->getDescription();
+        $price = $product->getPrice();
+        $imagePath = $product->getImagePath();
         $date = date('Y-m-d H:i:s');
         $statement = $this->connection->prepare(
-            "UPDATE product SET title = '$product->title',
-                   description = '$product->description',
-                   price = '$product->price',picture = 
-                   '$product->imagePath',create_date ='$date'
-                    WHERE id='$product->id';"
+            "UPDATE product SET title = '$title',description = '$description',
+                   price = '$price',picture = '$imagePath',create_date ='$date'
+                    WHERE id='$id';"
         );
         $statement->execute();
     }

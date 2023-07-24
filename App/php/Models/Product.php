@@ -7,13 +7,13 @@ use app\Component\Interface\Model;
 
 class Product implements Model
 {
-    public ?int $id;
+    private ?int $id;
 
-    public ?string $title;
-    public ?string $description;
-    public ?float $price;
-    public ?string $imagePath;
-    public ?array $imageFile;
+    private ?string $title;
+    private ?string $description;
+    private ?float $price;
+    private ?string $imagePath;
+    private ?array $imageFile;
 
     public function __construct($productDate, $imageFile)
     {
@@ -41,7 +41,7 @@ class Product implements Model
     {
         if (!is_null($this->imageFile) && $this->imageFile['tmp_name'] !== '') {
             if (!is_null($this->imagePath) && ($this->imagePath) > 0) {
-                $path = './' .$this->imagePath;
+                $path = './' . $this->imagePath;
                 unlink($path);
             }
             $filePath = $this->imageFile['tmp_name'];
@@ -53,4 +53,66 @@ class Product implements Model
             move_uploaded_file($filePath, $targetFile);
         }
     }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?string $title): void
+    {
+        $this->title = $title;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): void
+    {
+        $this->description = $description;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?float $price): void
+    {
+        $this->price = $price;
+    }
+
+    public function getImagePath(): ?string
+    {
+        return $this->imagePath;
+    }
+
+    public function setImagePath(?string $imagePath): void
+    {
+        $this->imagePath = $imagePath;
+    }
+
+    public function getImageFile(): ?array
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(?array $imageFile): void
+    {
+        $this->imageFile = $imageFile;
+    }
+
 }
