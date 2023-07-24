@@ -1,11 +1,12 @@
 <?php
 
-namespace app\DBConnection;
+namespace app\Component\DataBase;
 
+use app\Component\Interface\DataBase;
 use app\Models\Product;
 use PDO;
 
-class DBConnection
+class DBConnection implements DataBase
 {
     public PDO $connection;
 

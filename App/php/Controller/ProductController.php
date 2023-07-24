@@ -2,7 +2,7 @@
 
 namespace app\Controller;
 
-use app\DBConnection\DBConnection;
+use app\Component\DataBase\DBConnection;
 use app\Models\Product;
 
 class ProductController
