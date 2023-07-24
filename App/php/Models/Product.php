@@ -2,7 +2,7 @@
 
 namespace app\Models;
 
-use app\DBConnection\DBConnection;
+use app\Component\DataBase\DBConnection;
 
 class Product
 {
@@ -39,6 +39,10 @@ class Product
     public function saveFile(): void
     {
         if (!is_null($this->imageFile) && $this->imageFile['tmp_name'] !== '') {
+            if (!is_null($this->imagePath) && ($this->imagePath) > 0) {
+                $path = './' .$this->imagePath;
+                unlink($path);
+            }
             $filePath = $this->imageFile['tmp_name'];
             $originalFilename = $this->imageFile['name'];
             $fileExtension = pathinfo($originalFilename, PATHINFO_EXTENSION);
